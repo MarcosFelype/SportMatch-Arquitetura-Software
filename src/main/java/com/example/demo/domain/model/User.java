@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id @GeneratedValue(strategy = GenerationType.UUID)
-    @Column private String id = java.util.UUID.randomUUID().toString();
+    @Column private String id;
     @Column private String nome;
     @Column private String cpfCnpj;
     @Column private String genero;

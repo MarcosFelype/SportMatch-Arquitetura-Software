@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.domain.Competicao;
+import com.example.demo.domain.model.Competicao;
 import com.example.demo.service.CompeticaoService;
 
 @RestController

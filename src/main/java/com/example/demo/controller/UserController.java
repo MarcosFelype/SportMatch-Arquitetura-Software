@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.model.User;
+import com.example.demo.service.AuthService;
 import com.example.demo.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -18,9 +19,14 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
     private final UserService userService;
+    private final AuthService authService;
     
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user){
+
+        String senhaCriptografada = authService.criptografarSenha(user.getSenha());
+        user.setSenha(senhaCriptografada);
+
         User createdUser = userService.createUser(user);
         return ResponseEntity.status(CREATED).body(createdUser);
     }

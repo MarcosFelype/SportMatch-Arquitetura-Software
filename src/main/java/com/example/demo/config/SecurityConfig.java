@@ -19,7 +19,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // Libera as rotas da necessidade de autenticação
+    // Libera as rotas da necessidade de autenticação (utilização provisória)
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http

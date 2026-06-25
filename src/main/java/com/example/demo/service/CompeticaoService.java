@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,5 +63,9 @@ public class CompeticaoService {
         competicao.setStatus("Criada");
 
         return competicaoRepository.save(competicao);
+    }
+
+    public List<Competicao> listarTodasCompeticoes() {
+        return competicaoRepository.findAll();
     }
 }

@@ -11,6 +11,7 @@ import com.example.demo.domain.model.User;
 import com.example.demo.service.AuthService;
 import com.example.demo.service.UserService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -22,7 +23,7 @@ public class UserController {
     private final AuthService authService;
     
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
 
         String senhaCriptografada = authService.criptografarSenha(user.getSenha());
         user.setSenha(senhaCriptografada);
